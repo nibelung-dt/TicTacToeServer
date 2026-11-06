@@ -4,6 +4,7 @@ import com.tarasov.tic_tac_toe.auth.dto.AuthResponse;
 import com.tarasov.tic_tac_toe.auth.dto.LoginRequest;
 import com.tarasov.tic_tac_toe.auth.dto.RegisterRequest;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 public class AuthServiceImpl implements AuthService {
@@ -21,7 +22,7 @@ public class AuthServiceImpl implements AuthService {
 
         User user = User.builder()
                 .username(request.username())
-                .password(passwordEncoder.encode(request.password())) // хешируем!
+                .password(passwordEncoder.encode(request.password()))
                 .role("ROLE_USER")
                 .build();
 

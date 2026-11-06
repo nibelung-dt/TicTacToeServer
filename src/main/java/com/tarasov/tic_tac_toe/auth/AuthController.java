@@ -25,7 +25,7 @@ public class AuthController {
         log.info("user = {}", user);
 
         UserEntity entity = new UserEntity();
-        entity.setId(user.id());
+        // entity.setId(user.id());
         entity.setUsername(user.username());
 
         UserEntity saved = userRepository.save(entity);
