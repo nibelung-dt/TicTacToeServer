@@ -1,7 +1,8 @@
 package com.tarasov.tic_tac_toe.auth;
 
-import com.tarasov.tic_tac_toe.auth.dto.User;
-import com.tarasov.tic_tac_toe.data.UserEntity;
+import com.tarasov.tic_tac_toe.auth.dto.AuthResponse;
+import com.tarasov.tic_tac_toe.auth.dto.RegisterRequest;
+import com.tarasov.tic_tac_toe.auth.dto.LoginRequest;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,28 +15,23 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     private static final Logger log = LoggerFactory.getLogger(AuthController.class);
 
-    private final UserRepository userRepository;
+    private final AuthService authService;
 
-    public AuthController(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public AuthController(AuthService authService) {
+        this.authService = authService;
     }
 
     @PostMapping("/auth/login")
-    public User login(@RequestBody @Valid User user) {
-        log.info("user = {}", user);
+    public AuthResponse login(@RequestBody @Valid LoginRequest request) {
+        log.info("LoginRequest = {}", request);
 
-        UserEntity entity = new UserEntity();
-        // entity.setId(user.id());
-        entity.setUsername(user.username());
-
-        UserEntity saved = userRepository.save(entity);
-
-        return new User(saved.getUsername(), saved.getPassword());
+        return authService.login(request);
     }
 
     @PostMapping("/auth/register")
-    public User register(@RequestBody @Valid User user) {
+    public AuthResponse register(@RequestBody @Valid RegisterRequest request) {
+        log.info("RegisterRequest = {}", request);
 
+        return authService.register(request);
     }
-
 }
