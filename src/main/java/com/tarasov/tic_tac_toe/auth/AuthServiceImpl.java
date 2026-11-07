@@ -6,6 +6,7 @@ import com.tarasov.tic_tac_toe.auth.dto.RegisterRequest;
 import com.tarasov.tic_tac_toe.data.UserEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -45,9 +46,13 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public AuthResponse login(LoginRequest request) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.username(), request.password())
-        );
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(request.username(), request.password())
+            );
+        } catch (AuthenticationException e) {
+            throw new InvalidCredentialsException();
+        }
 
         UserEntity user = userRepository.findByUsername(request.username())
                 .orElseThrow(() -> new UsernameNotFoundException(request.username()));
