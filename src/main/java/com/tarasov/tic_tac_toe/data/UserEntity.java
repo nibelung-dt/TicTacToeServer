@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import java.security.Timestamp;
 
 
 @Getter
@@ -22,4 +23,6 @@ public class UserEntity {
         private String username;
         private String password;
         private String token;
+        private boolean online;
+        private Timestamp lastSeenAt;
 }
