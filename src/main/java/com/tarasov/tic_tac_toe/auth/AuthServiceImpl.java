@@ -4,6 +4,8 @@ import com.tarasov.tic_tac_toe.auth.dto.AuthResponse;
 import com.tarasov.tic_tac_toe.auth.dto.LoginRequest;
 import com.tarasov.tic_tac_toe.auth.dto.RegisterRequest;
 import com.tarasov.tic_tac_toe.data.UserEntity;
+import com.tarasov.tic_tac_toe.data.exceptions.InvalidCredentialsException;
+import com.tarasov.tic_tac_toe.data.exceptions.UsernameAlreadyExistsException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;

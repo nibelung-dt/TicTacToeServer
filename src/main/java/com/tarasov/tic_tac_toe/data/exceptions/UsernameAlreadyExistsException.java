@@ -1,4 +1,4 @@
-package com.tarasov.tic_tac_toe.auth;
+package com.tarasov.tic_tac_toe.data.exceptions;
 
 public class UsernameAlreadyExistsException extends RuntimeException {
 

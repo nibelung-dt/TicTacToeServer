@@ -1,7 +1,7 @@
 package com.tarasov.tic_tac_toe.config;
 
-import com.tarasov.tic_tac_toe.auth.InvalidCredentialsException;
-import com.tarasov.tic_tac_toe.auth.UsernameAlreadyExistsException;
+import com.tarasov.tic_tac_toe.data.exceptions.InvalidCredentialsException;
+import com.tarasov.tic_tac_toe.data.exceptions.UsernameAlreadyExistsException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
