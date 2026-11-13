@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 
 @Getter
