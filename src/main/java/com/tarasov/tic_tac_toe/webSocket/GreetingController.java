@@ -1,5 +1,7 @@
 package com.tarasov.tic_tac_toe.webSocket;
 
+import com.tarasov.tic_tac_toe.webSocket.events.Greeting;
+import com.tarasov.tic_tac_toe.webSocket.events.HelloMessage;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.annotation.SubscribeMapping;

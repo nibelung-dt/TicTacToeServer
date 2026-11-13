@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 
 @RestController
@@ -15,6 +16,14 @@ public class LobbyController {
 
     private final UserService userService;
 
+    /** Все зарегистрированные пользователи (для отладки/админки). */
+    @GetMapping("/lobby/getUsers")
+    public List<UserResponse> getUsers() {
+        log.info("getUsers requested");
+        return userService.getUsers();
+    }
+
+    /** Только те, у кого есть активная WebSocket-сессия. */
     @GetMapping("/lobby/getActiveUsers")
     public List<UserResponse> getActiveUsers() {
         log.info("getActiveUsers requested");

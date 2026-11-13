@@ -1,7 +1,4 @@
-package com.tarasov.tic_tac_toe.webSocket;
-
-import lombok.Getter;
-import lombok.Setter;
+package com.tarasov.tic_tac_toe.webSocket.events;
 
 
 public class Greeting {

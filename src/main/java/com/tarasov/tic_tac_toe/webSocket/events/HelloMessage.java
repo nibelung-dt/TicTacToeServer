@@ -1,4 +1,4 @@
-package com.tarasov.tic_tac_toe.webSocket;
+package com.tarasov.tic_tac_toe.webSocket.events;
 
 import lombok.Getter;
 import lombok.Setter;
